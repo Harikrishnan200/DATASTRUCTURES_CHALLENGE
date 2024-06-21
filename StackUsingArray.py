@@ -5,17 +5,27 @@ def pushData(data):
     print(f"{data} is successfully pushed onto the stack")
 
 def popData():
-    data = stack.pop()
-    print(f"{data} is successfully poped off from the stack")
+    if len(stack) == 0:
+        print("Stack is empty")
+        return
+    else:
+        data = stack.pop()
+        print(f"{data} is successfully poped off from the stack")
 
 def displayStack():
-    print(stack)
+    if len(stack) == 0:
+        print("Stack is empty")
+        return
+    else:
+        print("Stack elements are:")
+        for i in range(len(stack)-1,-1,-1):
+            print(stack[i])
 
 
 while True:
     print("\n1.Push the data")
-    print("1.Pop the data")
-    print("1.Display stack")
+    print("2.Pop the data")
+    print("3.Display stack")
 
     choice = int(input("\nEnter your choice:"))
     if choice == 1:
