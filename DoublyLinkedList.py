@@ -57,7 +57,7 @@ class DoublyLinkedList:
         else:
             node = Node(data=data)
             temp = self.head
-            print("inside-----------")
+
             while i < pos:
                 prev = temp
                 temp = temp.next
