@@ -67,8 +67,65 @@ class DoublyLinkedList:
             node.next = temp
             temp.prev = node
 
+    def deleteAtBeginning(self):
+        if self.head is None:
+            print("List is empty")
+        elif self.head.next is None:
+            self.head = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
 
+    def deleteAtEnd(self):
+        if self.head is None:
+            print("List is empty")
+        elif self.head.next is None:
+            self.head = None
+        else:
+            temp = self.head
+            # while temp.next is not None:
+            #     prev = temp
+            #     temp = temp.next
+            # prev.next = None
 
+            while temp.next is not None:
+                temp = temp.next
+
+            temp.prev.next = None
+
+    def deleteAtSpecificPosition(self,pos):
+        count = 0
+        i = 1
+        temp = self.head
+        while temp is not None:
+            count += 1
+            temp = temp.next
+
+        if pos == 1:
+            self.deleteAtBeginning()
+        elif pos == count:
+            self.deleteAtEnd()
+        elif pos > count:
+            print("Invalid Position\n")
+        elif pos < count:
+            temp = self.head
+            while i < pos:
+                temp = temp.next
+                i += 1
+
+            temp.prev.next = temp.next
+            temp.next.prev = temp.prev
+
+    def search(self, data):
+        temp = self.head
+        pos = 1
+        while temp is not None:
+            if temp.data == data:
+                print(f"Data {data} found at position {pos}")
+                return
+            temp = temp.next
+            pos += 1
+        print(f"Data {data} not found in the list")
 
 
 l = DoublyLinkedList()
