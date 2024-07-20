@@ -31,4 +31,3 @@ for i in range(n):
         temp.next = node
 l.display()
 
-
