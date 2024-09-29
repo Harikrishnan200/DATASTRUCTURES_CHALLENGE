@@ -127,18 +127,6 @@ class DoublyLinkedList:
             pos += 1
         print(f"Data {data} not found in the list")
     
-    def reverse(self):
-        print("Linked List is reversed")
-        temp = self.head
-        prev = None
-        while temp is not None:
-            next_node = temp.next
-            temp.next = prev
-            prev = temp
-            temp = next_node
-        self.head = prev
-
-        self.displayLinKedList()
 
 
 
@@ -153,7 +141,7 @@ while True:
     print('6.Delete at specific position')
     print('7.Display the Linked List')
     print('8.Search')
-    print("9.Reverse")
+
 
     choice = int(input("Enter your choice:"))
     if choice == 1:
@@ -178,5 +166,3 @@ while True:
     elif choice == 8:
         data = int(input("Enter the data to be search:"))
         l.search(data)
-    elif choice == 9:
-        l.reverse()
